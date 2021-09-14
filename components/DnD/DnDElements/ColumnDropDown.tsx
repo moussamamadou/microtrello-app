@@ -27,7 +27,7 @@ export const DropDownColumn = ({
 
   return (
     <Menu as="div" className="relative flex flex-col align-right">
-      <Menu.Button className="flex border-2  text-gray-400 bg-white border-transparent hover:border-blue-200 rounded-lg w-10 h-10 justify-center align-center transition-colors duration-300">
+      <Menu.Button className="flex border-2 hover:bg-white  bg-none border-transparent hover:border-blue-200 rounded-lg w-10 h-10 justify-center align-center transition-colors duration-300">
         <DotsHorizontal />
       </Menu.Button>
       <Transition

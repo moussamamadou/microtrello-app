@@ -15,10 +15,12 @@ const Column = (props: IColumn) => {
           ref={provided.innerRef}
           className={`
           ${
-            snapshot.isDragging ? "border-blue-600 border-3 drop-shadow-xl" : ""
+            snapshot.isDragging
+              ? "border-blue-400 bg-blue-50 shadow-lg border-[2.25px] "
+              : "bg-light "
           } 
-          flex flex-col w-72 p-3 m-2 rounded-lg bg-white 
-          border-2 border-solid border-transparent hover:border-blue-300 
+          flex flex-col w-72 p-3 m-2 rounded-lg 
+          border-2 border-solid border-transparent hover: hover:border-blue-200 
           transition-colors duration-300`}
         >
           <div className="flex justify-between items-center w-full gap-2 px-2">
@@ -33,10 +35,13 @@ const Column = (props: IColumn) => {
                 ref={provided.innerRef}
                 {...provided.droppableProps}
                 className={`
-                ${snapshot.draggingFromThisWith ? "bg-pink-50" : "bg-white"}
-                ${snapshot.isDraggingOver ? " bg-blue-50" : "bg-transparent"}
-                flex flex-col p-2 rounded-lg
-                transition-colors duration-300 min-h-[100px] `}
+                ${
+                  snapshot.isDraggingOver
+                    ? " bg-blue-50 border-blue-300"
+                    : "bg-transparent"
+                }
+                flex flex-col p-2 rounded-lg border-solid border-2 border-transparent
+                transition-colors duration-300 min-h-10 `}
               >
                 <RowList rows={props.rows} columnID={props.column.id} />
                 {provided.placeholder}

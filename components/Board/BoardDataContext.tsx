@@ -43,7 +43,7 @@ const emptyData: IBoardData = {
 const Context = createContext({} as IBoardDataContextValue);
 
 export default function BoardDataContext({ children }: Props) {
-  const [data, setBoardData] = useState(emptyData);
+  const [data, setBoardData] = useState(sampleData);
 
   const valueData: IBoardDataContextValue = {
     data,

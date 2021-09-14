@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap");
 
 @import "tailwindcss/base";
 @import "tailwindcss/components";
@@ -7,16 +8,22 @@
 *:focus-visible {
   outline: none;
 }
+body {
+  @apply bg-light font-body;
+}
 
 @layer components {
+  .logo {
+    @apply font-logo font-extrabold text-blue-700 text-4xl tracking-tight;
+  }
   .button {
     @apply flex justify-center items-center h-10 w-full p-2 font-medium rounded-lg transition-all duration-300;
   }
   .button-blue {
-    @apply button border-2 border-blue-100 hover:border-blue-500 bg-blue-50  hover:bg-blue-500 text-blue-400 hover:text-white;
+    @apply button border-2 border-blue-300 hover:border-blue-500 bg-blue-100  hover:bg-blue-500 text-blue-500 font-bold hover:text-white;
   }
   .input {
-    @apply flex items-center  w-full h-12 p-2 border-solid border-2 border-blue-200 rounded-lg focus:outline-none;
+    @apply flex items-center  w-full h-12 p-2 border-solid border-2 border-blue-100 rounded-lg focus:outline-none;
   }
   .text-title {
     @apply flex items-center w-full h-12 p-2 border-2 border-solid border-transparent truncate;

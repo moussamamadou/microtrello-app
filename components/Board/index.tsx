@@ -8,7 +8,7 @@ export default function Board() {
   return (
     <BoardDataContext>
       <DnDContext>
-        <div className="flex gap-1 m-3 w-full ">
+        <div className="flex gap-1 w-full p-3 ">
           <Droppable
             droppableId="all-columns"
             direction="horizontal"

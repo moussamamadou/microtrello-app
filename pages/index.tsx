@@ -1,13 +1,13 @@
 import Board from "../components/Board";
 export default function Home(): JSX.Element {
   return (
-    <div className="p-3 h-screen w-screen flex flex-col bg-white-50 font-medium">
-      <h1 className="text-3xl text-center p-1">Drag-n-Drop - Template</h1>
-      <h2 className="text-lg text-center p-1">
-        Build With : React.js - Next.js - TypeScript - TailwindCSS -
-        React-Beautifull-DnD
-      </h2>
-      <Board />
-    </div>
+    <>
+      <nav className="z-40 fixed w-full p-4 drop-shadow bg-white">
+        <h1 className="logo text-center p-1 cursor-default">µTrello</h1>
+      </nav>
+      <div className="flex-grow w-screen flex pt-20 flex-col text-gray-900 font-medium">
+        <Board />
+      </div>
+    </>
   );
 }

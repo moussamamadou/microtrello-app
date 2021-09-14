@@ -6,10 +6,21 @@ module.exports = {
   experimental: {
     applyComplexClasses: true,
   },
+  variants: {
+    extend: {
+      borderWidth: ["first"],
+      borderWidth: ["last"],
+    },
+  },
   theme: {
     extend: {
-      colors: {},
-      fontFamily: {},
+      colors: {
+        light: "#F8FAFD",
+      },
+      fontFamily: {
+        body: ["Poppins"],
+        logo: ["Nunito"],
+      },
       container: {
         center: true,
         padding: {
