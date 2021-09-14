@@ -1,10 +1,10 @@
 import { useCallback } from "react";
 import { DragDropContext } from "react-beautiful-dnd";
-import Props from "../Interface";
-import { useData } from "./DataContext";
+import Props from "../../Interface";
+import { useBoardData } from "../Board/BoardDataContext";
 
 const DnDContext = ({ children }: Props) => {
-  const { data, setData } = useData();
+  const { data, setBoardData } = useBoardData();
 
   const onDragStart = useCallback((start, provided) => {
     provided.announce(
@@ -52,7 +52,7 @@ const DnDContext = ({ children }: Props) => {
           ...data,
           columnOrder: newColumnOrder,
         };
-        setData(newData);
+        setBoardData(newData);
 
         return;
       }
@@ -78,7 +78,7 @@ const DnDContext = ({ children }: Props) => {
           },
         };
 
-        setData(newData);
+        setBoardData(newData);
 
         return;
       }
@@ -107,7 +107,7 @@ const DnDContext = ({ children }: Props) => {
         },
       };
 
-      setData(newData);
+      setBoardData(newData);
     },
     [data]
   );

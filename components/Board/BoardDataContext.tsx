@@ -1,11 +1,8 @@
 import React from "react";
-import { createContext, useContext, useState } from "react";
-import Props, { IData, IValueDataContext } from "../Interface";
+import { createContext, useContext, useState, useEffect } from "react";
+import Props, { IBoardData, IBoardDataContextValue } from "../../Interface";
 
-const Context = createContext({} as IValueDataContext);
-export const useData = () => useContext(Context);
-
-const sampleData: IData = {
+const sampleData: IBoardData = {
   rows: {
     "row-1": { id: "row-1", content: "row-1" },
     "row-2": { id: "row-2", content: "row-2" },
@@ -33,7 +30,7 @@ const sampleData: IData = {
   },
 };
 
-const emptyData: IData = {
+const emptyData: IBoardData = {
   rows: {},
   columns: {},
   columnOrder: [],
@@ -43,13 +40,23 @@ const emptyData: IData = {
   },
 };
 
-export default function DataContext({ children }: Props) {
-  const [data, setData] = useState(emptyData);
+const Context = createContext({} as IBoardDataContextValue);
 
-  const valueData: IValueDataContext = {
+export default function BoardDataContext({ children }: Props) {
+  const [data, setBoardData] = useState(emptyData);
+
+  const valueData: IBoardDataContextValue = {
     data,
-    setData,
+    setBoardData,
   };
 
+  useEffect(() => {
+    // console.log(
+    //   "🚀 ~ file: BoardDataContext.tsx ~ line 56 ~ BoardDataContext ~ data",
+    //   data
+    // );
+  }, [data]);
   return <Context.Provider value={valueData}>{children}</Context.Provider>;
 }
+
+export const useBoardData = () => useContext(Context);
