@@ -11,7 +11,8 @@ const size = function (obj: Object) {
 
 export const addColumn = (
   data: IData,
-  setData: React.Dispatch<React.SetStateAction<IData>>
+  setData: React.Dispatch<React.SetStateAction<IData>>,
+  newColumnTitle: string
 ) => {
   const newColumn = `column-${data.increment.columns + 1}`;
   const newIncrement = data.increment.columns + 1;
@@ -22,7 +23,7 @@ export const addColumn = (
       ...data.columns,
       [newColumn]: {
         id: newColumn,
-        title: newColumn,
+        title: newColumnTitle,
         rowOrder: [],
       },
     },
@@ -40,7 +41,8 @@ export const addColumn = (
 export const addRow = (
   data: IData,
   setData: React.Dispatch<React.SetStateAction<IData>>,
-  columnId: string
+  columnId: string,
+  newColumnTitle: string
 ) => {
   const newRow = `row-${data.increment.rows + 1}`;
   const newIncrement = data.increment.rows + 1;
@@ -50,7 +52,7 @@ export const addRow = (
       ...data.rows,
       [newRow]: {
         id: newRow,
-        content: newRow,
+        content: newColumnTitle,
       },
     },
     columns: {
@@ -132,42 +134,48 @@ export const moveColumn = (
   columnId: string,
   direction: string
 ) => {
+  console.log("moveColumn - ", data, columnId, direction);
+
   let columnIndex = 0;
   let newColumnOrder = [];
   let newData;
   switch (direction) {
-    case "MOVE_LEFT":
-      data.columnOrder.map((column, index) => {
-        if (column === columnId) columnIndex = index;
-      });
+    case "MOVE_RIGHT":
+      setTimeout(() => {
+        data.columnOrder.map((column, index) => {
+          if (column === columnId) columnIndex = index;
+        });
 
-      if (columnIndex >= data.columnOrder.length - 1) break;
+        if (columnIndex >= data.columnOrder.length - 1) return;
 
-      newColumnOrder = swap(data.columnOrder, columnIndex, columnIndex + 1);
+        newColumnOrder = swap(data.columnOrder, columnIndex, columnIndex + 1);
 
-      newData = {
-        ...data,
-        columnOrder: newColumnOrder,
-      };
+        newData = {
+          ...data,
+          columnOrder: newColumnOrder,
+        };
 
-      setData(newData);
+        setData(newData);
+      }, 150);
 
       break;
-    case "MOVE_RIGHT":
-      data.columnOrder.map((column, index) => {
-        if (column === columnId) columnIndex = index;
-      });
+    case "MOVE_LEFT":
+      setTimeout(() => {
+        data.columnOrder.map((column, index) => {
+          if (column === columnId) columnIndex = index;
+        });
 
-      if (columnIndex === 0) break;
+        if (columnIndex === 0) return;
 
-      newColumnOrder = swap(data.columnOrder, columnIndex, columnIndex - 1);
+        newColumnOrder = swap(data.columnOrder, columnIndex, columnIndex - 1);
 
-      newData = {
-        ...data,
-        columnOrder: newColumnOrder,
-      };
+        newData = {
+          ...data,
+          columnOrder: newColumnOrder,
+        };
 
-      setData(newData);
+        setData(newData);
+      }, 150);
       break;
     default:
       break;

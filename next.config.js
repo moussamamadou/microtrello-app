@@ -1,8 +1,10 @@
+const withSvgr = require("next-plugin-svgr");
+
 /**
  * @type {import('next').NextConfig}
  **/
 
-module.exports = {
+module.exports = withSvgr({
   reactStrictMode: true,
   target: "serverless",
   async rewrites() {
@@ -14,4 +16,4 @@ module.exports = {
       },
     ];
   },
-};
+});
