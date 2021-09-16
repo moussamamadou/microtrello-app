@@ -2,13 +2,16 @@ import React, { Fragment } from "react";
 import { useBoardData } from "../../Board/BoardDataContext";
 
 import { Menu, Transition } from "@headlessui/react";
+import { removeRow, moveRow } from "../../../lib";
+import { IRowDropDown } from "../../../Interface";
+
 import DotsHorizontal from "../../../public/DotsHorizontal.svg";
 import ArrowNarrowUp from "../../../public/ArrowNarrowUp.svg";
 import ArrowNarrowDown from "../../../public/ArrowNarrowDown.svg";
 import Pencil from "../../../public/Pencil.svg";
 import Trash from "../../../public/Trash.svg";
-import { removeRow, moveRow } from "../../../lib";
-import { IRowDropDown } from "../../../Interface";
+import Eye from "../../../public/Eye.svg";
+import { useBoardModal } from "../../Board/BoardModalContext";
 
 export const DropDownRow = ({
   inputRowVisible,
@@ -18,7 +21,13 @@ export const DropDownRow = ({
   columnID,
 }: IRowDropDown) => {
   const { data, setBoardData } = useBoardData();
-  const handleRenameRow = () => {
+
+  const { setIsOpen, setCardData } = useBoardModal();
+
+  const handleRenameRow = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    e.preventDefault();
     setTimeout(() => {
       setInputRowVisible(!inputRowVisible);
       inputRowRef.current?.focus();
@@ -26,8 +35,8 @@ export const DropDownRow = ({
   };
 
   return (
-    <Menu as="div" className="relative flex flex-col align-right bg-white">
-      <Menu.Button className="z-0 border-2 bg-white border-transparent hover:border-blue-200 rounded-lg w-10 h-10 justify-center align-center transition-colors duration-300">
+    <Menu as="div" className="relative flex-col align-right bg-white">
+      <Menu.Button className="z-50 text-transparent group-hover:text-black border-2 bg-white border-transparent hover:border-blue-200 rounded-sm w-10 h-10 justify-center align-center transition-colors duration-300">
         <DotsHorizontal />
       </Menu.Button>
       <Transition
@@ -39,15 +48,15 @@ export const DropDownRow = ({
         leaveFrom="transform scale-100 opacity-100"
         leaveTo="transform scale-95 opacity-0"
       >
-        <Menu.Items className="z-10 absolute right-0 w-56 mt-12 p-2 origin-top-right bg-white border-blue-200 border-2 rounded-lg filter drop-shadow focus:outline-none focus-visible:outline-none">
+        <Menu.Items className="z-10 absolute right-0 w-56 mt-1 p-2 origin-top-right bg-white border-gray-100 border-2 rounded-sm filter drop-shadow focus:outline-none focus-visible:outline-none">
           <Menu.Item>
             {({ active }) => (
               <button
                 type="button"
-                className="flex items-center relative font-medium p-2 w-full rounded-lg hover:bg-blue-50 hover:text-blue-400 transition-colors duration-300"
-                onClick={handleRenameRow}
+                className="menu-item flex items-center relative font-medium p-2 w-full rounded-sm hover:bg-blue-50 hover:text-blue-400 transition-colors duration-300"
+                onClick={(e) => handleRenameRow(e)}
               >
-                <Pencil className="w-6 h-6 mr-2" /> Rename card
+                <Pencil className="w-5 h-5 mr-2" /> Rename card
               </button>
             )}
           </Menu.Item>
@@ -55,10 +64,24 @@ export const DropDownRow = ({
             {({ active }) => (
               <button
                 type="button"
-                className="flex items-center relative font-medium p-2 w-full rounded-lg hover:bg-blue-50 hover:text-blue-400 transition-colors duration-300"
-                onClick={() =>
-                  moveRow(data, setBoardData, rowID, columnID, "MOVE_UP")
-                }
+                className="menu-item flex items-center relative font-medium p-2 w-full rounded-sm hover:bg-blue-50 hover:text-blue-400 transition-colors duration-300"
+                onClick={() => {
+                  setCardData(data.rows[rowID].cardData);
+                  setIsOpen(true);
+                }}
+              >
+                <Eye className="w-5 h-5 mr-2" /> View Details
+              </button>
+            )}
+          </Menu.Item>
+          <Menu.Item>
+            {({ active }) => (
+              <button
+                type="button"
+                className="menu-item flex items-center relative font-medium p-2 w-full rounded-sm hover:bg-blue-50 hover:text-blue-400 transition-colors duration-300"
+                onClick={() => {
+                  moveRow(data, setBoardData, rowID, columnID, "MOVE_UP");
+                }}
               >
                 <ArrowNarrowUp className="w-6 h-6 mr-2" /> Move Up
               </button>
@@ -68,7 +91,7 @@ export const DropDownRow = ({
             {({ active }) => (
               <button
                 type="button"
-                className="flex items-center relative font-medium p-2 w-full rounded-lg hover:bg-blue-50 hover:text-blue-400 transition-colors duration-300"
+                className="menu-item flex items-center relative font-medium p-2 w-full rounded-sm hover:bg-blue-50 hover:text-blue-400 transition-colors duration-300"
                 onClick={() =>
                   moveRow(data, setBoardData, rowID, columnID, "MOVE_DOWN")
                 }
@@ -81,7 +104,7 @@ export const DropDownRow = ({
             {({ active }) => (
               <button
                 type="button"
-                className="flex items-center relative font-medium p-2 w-full rounded-lg  text-red-400 hover:bg-red-50 hover:text-red-400 transition-colors duration-300"
+                className="menu-item flex items-center relative font-medium p-2 w-full rounded-sm  text-red-400 hover:bg-red-50 hover:text-red-400 transition-colors duration-300"
                 onClick={() => removeRow(data, setBoardData, rowID, columnID)}
               >
                 <Trash className="w-6 h-6 mr-2" /> Delete card

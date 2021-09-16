@@ -14,7 +14,16 @@ export const addRow = (
       ...data.rows,
       [newRow]: {
         id: newRow,
-        content: newColumnTitle,
+        cardData: {
+          id: newRow,
+          title: newColumnTitle,
+          description: "",
+          checkList: {
+            list: [],
+            listLength: 0,
+            listChecked: 0,
+          },
+        },
       },
     },
     columns: {

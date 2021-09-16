@@ -1,3 +1,4 @@
+import { ICardData } from "./DataInterface";
 export interface IColumn {
   column: {
     id: string;
@@ -6,7 +7,7 @@ export interface IColumn {
   };
   rows: Array<{
     id: string;
-    content: string;
+    cardData: ICardData;
   }>;
   index: number;
 }
@@ -15,7 +16,7 @@ export interface IRow {
   key: string;
   row: {
     id: string;
-    content: string;
+    cardData: ICardData;
   };
   columnID: string;
   index: number;
@@ -24,7 +25,7 @@ export interface IRow {
 export interface IRowList {
   rows: Array<{
     id: string;
-    content: string;
+    cardData: ICardData;
   }>;
   columnID: string;
 }

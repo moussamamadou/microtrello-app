@@ -28,3 +28,5 @@ export const addColumn = (
 
   setBoardData(newData);
 };
+
+export default addColumn;

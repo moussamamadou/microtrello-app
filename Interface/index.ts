@@ -3,8 +3,16 @@ type Props = {
 };
 
 export default Props;
-export type { IBoardData, IBoardDataContextValue } from "./DataInterface";
+export type {
+  IBoardModalContextValue,
+  IBoardData,
+  IBoardDataContextValue,
+  ICardData,
+  ICheckListData,
+  IListData,
+} from "./DataInterface";
 export type { IColumn, IRow, IRowList } from "./DnDStructureInterface";
+export type { ICard, IListItem, ICheckList } from "./CardComponentInterface";
 export type {
   IColumnHeader,
   IColumnDropDown,

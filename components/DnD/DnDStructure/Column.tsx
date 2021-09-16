@@ -19,7 +19,7 @@ const Column = (props: IColumn) => {
               ? "border-blue-400 bg-blue-50 shadow-lg border-[2.25px] "
               : "bg-light "
           } 
-          flex flex-col w-72 p-3 m-2 rounded-lg 
+          flex flex-col w-72 p-3 m-2 rounded-sm 
           border-2 border-solid border-transparent hover: hover:border-blue-200 
           transition-colors duration-300`}
         >
@@ -40,7 +40,7 @@ const Column = (props: IColumn) => {
                     ? " bg-blue-50 border-blue-300"
                     : "bg-transparent"
                 }
-                flex flex-col p-2 rounded-lg border-solid border-2 border-transparent
+                flex flex-col p-2 rounded-sm border-solid border-2 border-transparent
                 transition-colors duration-300 min-h-10 `}
               >
                 <RowList rows={props.rows} columnID={props.column.id} />
