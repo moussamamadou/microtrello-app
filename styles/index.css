@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap");
 
 @import "tailwindcss/base";
@@ -8,24 +8,54 @@
 *:focus-visible {
   outline: none;
 }
+*::-webkit-scrollbar {
+  @apply w-3 h-3 bg-light;
+}
+
+*::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 border-8;
+}
+
+textarea::-webkit-scrollbar-thumb:hover {
+  @apply bg-transparent;
+}
+
+textarea::-webkit-scrollbar-thumb {
+  @apply bg-transparent;
+}
+
+textarea::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-300;
+}
+
 body {
-  @apply bg-light font-body;
+  @apply bg-light font-body text-sm text-black font-medium;
 }
 
 @layer components {
   .logo {
-    @apply font-logo font-extrabold text-blue-700 text-4xl tracking-tight;
+    @apply font-logo font-extrabold text-blue-600 text-4xl tracking-tight;
   }
   .button {
-    @apply flex justify-center items-center h-10 w-full p-2 font-medium rounded-lg transition-all duration-300;
+    @apply flex justify-center items-center w-full p-2 border-solid border-2 border-transparent font-medium rounded-sm transition-all duration-300;
   }
   .button-blue {
-    @apply button border-2 border-blue-300 hover:border-blue-500 bg-blue-100  hover:bg-blue-500 text-blue-500 font-bold hover:text-white;
+    @apply button border-2 bg-gray-100 border-gray-200  text-gray-600 hover:border-blue-400 hover:bg-blue-400 hover:text-white  font-bold;
   }
   .input {
-    @apply flex items-center  w-full h-12 p-2 border-solid border-2 border-blue-100 rounded-lg focus:outline-none;
+    @apply flex items-center w-full p-2 bg-transparent border-solid border-2 border-transparent focus:border-blue-200 rounded-sm;
+    resize: none;
   }
   .text-title {
     @apply flex items-center w-full h-12 p-2 border-2 border-solid border-transparent truncate;
+  }
+  .focus-within\:border-blue-400:focus-within {
+    @apply border-blue-400;
+  }
+  .sortable-ghost {
+    @apply bg-blue-100;
+  }
+  .sortable-chosen {
+    @apply bg-red-400;
   }
 }

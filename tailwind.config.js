@@ -12,13 +12,14 @@ module.exports = {
       borderWidth: ["last"],
     },
   },
+  plugins: [require("@tailwindcss/line-clamp")],
   theme: {
     extend: {
       colors: {
         light: "#F8FAFD",
       },
       fontFamily: {
-        body: ["Poppins"],
+        body: ["Roboto"],
         logo: ["Nunito"],
       },
       container: {
