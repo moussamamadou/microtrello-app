@@ -58,7 +58,7 @@ body {
     @apply menu-button text-transparent hover:border-indigo-500 hover:border-opacity-50 group-hover:text-white;
   }
   .menu-items {
-    @apply z-10 absolute right-0 w-56 mt-1 p-3 origin-top-right bg-third border-white  border-opacity-5 border-solid border-2 rounded-lg filter drop-shadow focus:outline-none focus-visible:outline-none;
+    @apply z-10 absolute right-0 w-56 mt-1 p-3 origin-top-right bg-third border-white  border-opacity-5 border-solid border-2 rounded-lg filter drop-shadow focus:outline-none;
   }
   .menu-item {
     @apply flex items-center relative text-white font-medium hover:bg-indigo-500 p-2 w-full rounded-lg  transition-colors duration-300;
