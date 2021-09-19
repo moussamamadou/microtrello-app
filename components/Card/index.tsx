@@ -69,7 +69,7 @@ const Card = ({ cardData }: ICard) => {
     <div>
       <input
         type="text"
-        className="input  px-6 border-transparent focus:border-indigo-500 focus:border-opacity-20 font-bold text-2xl border-l-0 border-r-0 border-t-0 rounded-none"
+        className="input  px-6 border-transparent focus:border-indigo-500 focus:border-opacity-20 font-bold text-lg border-l-0 border-r-0 border-t-0 rounded-none"
         placeholder="Add a title"
         value={cardTitle}
         onChange={handleTitleChange}

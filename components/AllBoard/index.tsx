@@ -58,8 +58,8 @@ const AllBoard = () => {
     <div className="container">
       <div className="flex justify-between items-center py-5">
         <div className="">
-          <h3 className="text-white text-3xl">Boards</h3>
-          <p className="text-white text-opacity-60 text-lg font-normal">
+          <h3 className="text-white text-xl">Boards</h3>
+          <p className="text-white text-opacity-60 text-md font-normal mt-1">
             {allBoard.length === 0
               ? `No board`
               : `You have ${allBoard.length} board${
@@ -80,7 +80,7 @@ const AllBoard = () => {
               className=" rounded-lg pl-8 pr-2 py-4 border-2 border-dashed placeholder-indigo-500 placeholder-opacity-50 border-indigo-500  bg-transparent
              secondary hover:border-solid transition-all duration-400 
             focus: focus:bg-secondary focus:border-solid 
-            text-xl font-normal truncate w-full h-full text-white "
+            text-md font-normal truncate w-full h-full text-white "
               placeholder="Create new board"
               onBlur={handleBlur}
               value={newBoard}
@@ -109,7 +109,7 @@ const AllBoard = () => {
                   onClick={(e) => openBoard(e, item.id)}
                 >
                   {/* <div className="flex bg-blue-500 justify-center items-center w-full h-3"></div> */}
-                  <h3 className="text-lg  truncate font-base p-4">
+                  <h3 className="text-base  truncate font-base p-4">
                     {item.name}
                   </h3>
                   <button
@@ -117,7 +117,7 @@ const AllBoard = () => {
                     className="delete-board w-8 h-8 mr-2 text-transparent border-solid border-2 border-transparent group-hover:text-gray-400 group-hover:hover:text-red-500 transition-colors duration-300"
                     onClick={() => deleteItem(index, item.id)}
                   >
-                    <Trash className="delete-board" />
+                    <Trash className="delete-board hover:text-red-500 transition-colors duration-300" />
                   </button>
                 </div>
               ))}

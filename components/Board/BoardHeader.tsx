@@ -53,17 +53,17 @@ const BoardHeader = () => {
   }, [data]);
 
   return (
-    <div className=" container flex text-white text-opacity-80  text-2xl  justify-between items-center py-5">
+    <div className=" container flex text-white text-opacity-80  text-lg  justify-between items-center py-5">
       <button
         className="flex justify-center items-center font-normal hover:text-indigo-500 transition-colors duration-300"
         onClick={() => setIsShowingBoard(!isShowingBoard)}
       >
-        <ChevronLeft className="w-7 h-7  mr-2 mb-2" /> All Board
+        <ChevronLeft className="w-7 h-7  mr-2 mb-1" /> All Board
       </button>
       <div className="w-2/5">
         {inputBoardVisible ? (
           <div
-            className=" h-14 p-2 text-title border-solid border-2 border-transparent text-white text-3xl font-normal cursor-pointer"
+            className=" h-14 p-2 text-title border-solid border-2 border-transparent text-white text-lg font-normal cursor-pointer"
             onClick={() => setInputBoardVisible(!inputBoardVisible)}
           >
             {data.name}
@@ -72,7 +72,7 @@ const BoardHeader = () => {
           <input
             type="text"
             ref={inputBoardRef}
-            className="input text-white  h-14 p-2 text-3xl "
+            className="input text-white  h-14 p-2 text-lg "
             value={inputBoardTitle}
             onChange={handleChange}
             onKeyDown={handleKey}

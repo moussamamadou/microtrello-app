@@ -44,7 +44,7 @@ const Row = (props: IRow) => {
             />
           </div>
           {props.row.cardData.description && (
-            <p className="line-clamp-3 px-4 mb-3 text-gray-400">
+            <p className="line-clamp-3 px-4 mb-3 text-gray-400 leading-5">
               {props.row.cardData.description}
             </p>
           )}

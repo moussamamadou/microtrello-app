@@ -20,17 +20,7 @@ export default function BoardModal() {
           onClose={closeModal}
         >
           <div className="p-0 text-center">
-            <Transition.Child
-              as={Fragment}
-              enter="ease-out duration-300"
-              enterFrom="opacity-0"
-              enterTo="opacity-100"
-              leave="ease-in duration-200"
-              leaveFrom="opacity-100"
-              leaveTo="opacity-0"
-            >
-              <Dialog.Overlay className="fixed inset-0 bg-black opacity-30" />
-            </Transition.Child>
+            <Dialog.Overlay className="fixed inset-0 bg-black opacity-30" />
 
             {/* This element is to trick the browser into centering the modal contents. */}
             <span

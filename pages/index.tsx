@@ -51,13 +51,13 @@ export default function Home(): JSX.Element {
         <h1 className="logo text-center cursor-default bg-indigo-700 py-2 px-3 rounded-lg">
           µTrello
         </h1>
-        <p className="italic text-white text-opacity-80 text-lg flex items-center font-normal ">
+        <p className="italic text-white text-opacity-80 text-md flex items-center font-normal leading-4">
           A very tiny browser task management app for your personnal and private
           usage.
         </p>
       </nav>
       {loadingGlobal && (
-        <div className="overflow-scroll h-screen w-screen relative flex-grow flex pb-0 flex-col text-gray-900 font-medium">
+        <div className="h-screen w-screen relative flex-grow flex pb-0 flex-col text-gray-900 font-medium">
           <Transition show={!isShowingBoard}>
             {/* <Transition.Child
             enter="transition-opacity duration-300"
