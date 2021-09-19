@@ -16,9 +16,13 @@ const Row = (props: IRow) => {
           {...provided.dragHandleProps}
           ref={provided.innerRef}
           aria-roledescription="Press space bar to lift the Row"
-          className={`${snapshot.isDragging ? "border-blue-500 shadow-lg" : ""}
-          flex flex-col w-full rounded-sm bg-white mb-4
-          border-2 border-solid border-blue-50 hover:border-blue-200 
+          className={`${
+            snapshot.isDragging
+              ? "shadow-lg border-indigo-500 border-opacity-100"
+              : "border-transparent"
+          }
+          flex flex-col w-full rounded-lg bg-secondary mb-4
+          border-2 border-transparent hover:border-indigo-500 hover:border-opacity-50
           shadow hover:shadow-lg transition-colors duration-300 `}
           onClick={(e) => {
             if (
@@ -32,7 +36,7 @@ const Row = (props: IRow) => {
             }
           }}
         >
-          <div className="flex justify-between  items-center w-full gap-2  p-2 group">
+          <div className="flex justify-between  items-center w-full gap-2  p-2 group text-white">
             <RowHeader
               rowID={props.row.id}
               rowTitle={props.row.cardData.title}

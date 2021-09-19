@@ -15,6 +15,8 @@ export interface ICardData {
   checkList: ICheckListData;
 }
 export interface IBoardData {
+  id: number;
+  name: string;
   rows: {
     [index: string]: {
       id: string;
@@ -34,8 +36,23 @@ export interface IBoardData {
     columns: number;
   };
 }
+
+export interface IAllBoardData {
+  id: number | undefined;
+  name: string | undefined;
+}
+
+export interface IGlobalContextValue {
+  visibleBoardId: number;
+  setVisibleBoardId: React.Dispatch<React.SetStateAction<number>>;
+  isShowingBoard: boolean;
+  setIsShowingBoard: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
 export interface IBoardDataContextValue {
+  boardId: number;
   data: IBoardData;
+  setBoardId: React.Dispatch<React.SetStateAction<number>>;
   setBoardData: React.Dispatch<React.SetStateAction<IBoardData>>;
 }
 export interface IBoardModalContextValue {

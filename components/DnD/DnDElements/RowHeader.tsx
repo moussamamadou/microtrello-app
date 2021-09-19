@@ -47,12 +47,12 @@ const RowHeader = ({ rowID, rowTitle, columnID }: IRowHeader) => {
   return (
     <>
       {!inputRowVisible ? (
-        <div className="text-title h-12 font-bold text-base">{rowTitle}</div>
+        <div className="text-title">{rowTitle}</div>
       ) : (
         <input
           type="text"
           ref={inputRowRef}
-          className="input h-12 font-bold"
+          className="input "
           value={inputRowTitle}
           onChange={handleChange}
           onKeyDown={handleKey}

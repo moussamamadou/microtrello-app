@@ -2,9 +2,18 @@ import { useCallback } from "react";
 import { DragDropContext } from "react-beautiful-dnd";
 import Props from "../../Interface";
 import { useBoardData } from "../Board/BoardDataContext";
+import { useEffect } from "react";
+
+import { useGlobal } from "../GlobalContext";
+import { getBoardDataDB } from "../../lib";
 
 const DnDContext = ({ children }: Props) => {
-  const { data, setBoardData } = useBoardData();
+  const { visibleBoardId } = useGlobal();
+  const { data, setBoardData, setBoardId } = useBoardData();
+
+  useEffect(() => {
+    getBoardDataDB(setBoardData, setBoardId, visibleBoardId);
+  }, []);
 
   const onDragStart = useCallback((start, provided) => {
     provided.announce(

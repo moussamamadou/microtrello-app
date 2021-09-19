@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useRef, useState } from "react";
 import { ReactSortable } from "react-sortablejs";
 import TextareaAutosize from "react-textarea-autosize";
 import ListItem from "./ListItem";
-import { ICheckList, IListData } from "../../Interface";
+import { ICheckList } from "../../Interface";
 import Plus from "../../public/Plus.svg";
 const CheckList = ({ list, setList }: ICheckList) => {
   const [newItemName, setNewItemName] = useState("");
@@ -66,7 +66,7 @@ const CheckList = ({ list, setList }: ICheckList) => {
         </ReactSortable>
       )}
       <form onSubmit={onSubmitNewItem}>
-        <div className="flex px-5 py-1 gap-2 text-base roup border-2 border-transparent focus-within:border-blue-200 transition-colors duration-300  border-l-0 border-r-0">
+        <div className="flex px-5 py-1 gap-2 text-base roup border-2 border-transparent focus-within: transition-colors duration-300  border-l-0 border-r-0">
           <Plus className="w-6 h-6 mt-[2px] text-gray-400" />
           <TextareaAutosize
             minRows={1}

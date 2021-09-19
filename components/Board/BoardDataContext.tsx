@@ -1,8 +1,11 @@
 import React from "react";
 import { createContext, useContext, useState, useEffect } from "react";
-import Props, { IBoardData, IBoardDataContextValue } from "../../Interface";
+import Props, { db, IBoardData, IBoardDataContextValue } from "../../Interface";
+import { updateBoardDataDB } from "../../lib";
 
 const sampleData: IBoardData = {
+  id: 0,
+  name: "sampleData",
   rows: {
     "row-1": {
       id: "row-1",
@@ -103,6 +106,8 @@ const sampleData: IBoardData = {
 };
 
 const emptyData: IBoardData = {
+  id: 0,
+  name: "EmptyData",
   rows: {},
   columns: {},
   columnOrder: [],
@@ -116,11 +121,22 @@ const Context = createContext({} as IBoardDataContextValue);
 
 export default function BoardDataContext({ children }: Props) {
   const [data, setBoardData] = useState(emptyData);
+  const [boardId, setBoardId] = useState(0);
 
   const valueData: IBoardDataContextValue = {
+    boardId,
     data,
     setBoardData,
+    setBoardId,
   };
+
+  useEffect(() => {
+    updateBoardDataDB(boardId, data);
+    // console.log(
+    //   "🚀 ~ file: BoardDataContext.tsx ~ line 135 ~ useEffect ~ data",
+    //   data
+    // );
+  }, [data]);
 
   return <Context.Provider value={valueData}>{children}</Context.Provider>;
 }

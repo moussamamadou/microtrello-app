@@ -1,6 +1,7 @@
 import type { AppProps } from "next/app";
 import Props from "../Interface";
 import "../styles/index.css";
+import GlobalContext from "../components/GlobalContext";
 
 function SafeHydrate({ children }: Props) {
   return (
@@ -12,9 +13,11 @@ function SafeHydrate({ children }: Props) {
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <SafeHydrate>
-      <Component {...pageProps} />
-    </SafeHydrate>
+    <GlobalContext>
+      <SafeHydrate>
+        <Component {...pageProps} />
+      </SafeHydrate>
+    </GlobalContext>
   );
 }
 

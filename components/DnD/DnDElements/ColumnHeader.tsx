@@ -56,7 +56,7 @@ const ColumnHeader = ({ columnID, columnTitle }: IColumnHeader) => {
     <>
       {inputColumnVisible ? (
         <div
-          className="text-title h-12"
+          className="text-title h-12 text-white"
           onClick={() => setInputColumnVisible(!inputColumnVisible)}
         >
           {columnTitle}
@@ -65,7 +65,7 @@ const ColumnHeader = ({ columnID, columnTitle }: IColumnHeader) => {
         <input
           type="text"
           ref={inputColumnRef}
-          className="input h-12"
+          className="input h-12  text-white"
           value={inputColumnTitle}
           onChange={handleChange}
           onKeyDown={handleKey}

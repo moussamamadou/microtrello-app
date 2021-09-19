@@ -48,10 +48,10 @@ export default function BoardModal() {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <div className=" z-50 inline-block py-2 w-full max-w-md my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-sm">
+              <div className=" z-50 inline-block py-2 w-full max-w-md my-8 overflow-hidden text-left align-middle transition-all transform bg-secondary shadow-xl rounded-lg">
                 <button
                   type="button"
-                  className=" absolute w-7 h-7 mr-2 right-0 border-solid border-2 border-transparent group-hover:text-gray-500 hover:border-gray-200 group-hover:text-gray-500transition-colors duration-300"
+                  className=" absolute w-7 h-7 mr-2 right-0 text-gray-500 hover:text-white transition-colors duration-300"
                   onClick={closeModal}
                 >
                   <X />

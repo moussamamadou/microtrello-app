@@ -69,14 +69,15 @@ const Card = ({ cardData }: ICard) => {
     <div>
       <input
         type="text"
-        className="input  px-6  font-bold text-xl border-l-0 border-r-0 border-t-0"
+        className="input  px-6 border-transparent focus:border-indigo-500 focus:border-opacity-20 font-bold text-2xl border-l-0 border-r-0 border-t-0 rounded-none"
         placeholder="Add a title"
         value={cardTitle}
         onChange={handleTitleChange}
       />
       <TextareaAutosize
         minRows={5}
-        className="input  px-6  text-base border-l-0 border-r-0"
+        className="input  px-6 border-transparent focus:border-indigo-500 focus:border-opacity-20
+        10 text-base border-l-0 border-r-0 rounded-none"
         placeholder="Add more detail to this card"
         value={cardDescription}
         onChange={handleDescriptionChange}

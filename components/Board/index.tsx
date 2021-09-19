@@ -3,8 +3,8 @@ import ColumnList from "../DnD/DnDStructure/ColumnList";
 import ColumnInputButton from "../DnD/DnDElements/ColumnInputButton";
 import BoardDataContext from "./BoardDataContext";
 import DnDContext from "../DnD/DnDContext";
-import Card from "../../components/Card";
 import BoardModalContext from "./BoardModalContext";
+import BoardHeader from "./BoardHeader";
 import BoardModal from "./BoardModal";
 
 export default function Board() {
@@ -13,8 +13,9 @@ export default function Board() {
       <BoardModalContext>
         <>
           <BoardModal />
+          <BoardHeader />
           <DnDContext>
-            <div className="flex gap-1 w-full p-3 ">
+            <div className="flex gap-1 w-full p-4">
               <Droppable
                 droppableId="all-columns"
                 direction="horizontal"

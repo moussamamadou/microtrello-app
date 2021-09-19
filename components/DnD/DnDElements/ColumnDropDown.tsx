@@ -26,8 +26,8 @@ export const DropDownColumn = ({
   };
 
   return (
-    <Menu as="div" className="relative flex flex-col align-right">
-      <Menu.Button className="flex border-2 hover:bg-white  bg-none border-transparent hover:border-gray-100 rounded-sm w-10 h-10 justify-center align-center transition-colors duration-300">
+    <Menu as="div" className="relative align-right">
+      <Menu.Button className="menu-button">
         <DotsHorizontal />
       </Menu.Button>
       <Transition
@@ -39,12 +39,12 @@ export const DropDownColumn = ({
         leaveFrom="transform scale-100 opacity-100"
         leaveTo="transform scale-95 opacity-0"
       >
-        <Menu.Items className="z-10 absolute right-0 w-56 mt-12 p-2 origin-top-right bg-white rounded-sm filter drop-shadow-md border-gray-200 border-2 focus:outline-none">
+        <Menu.Items className="menu-items">
           <Menu.Item>
             {({ active }) => (
               <button
                 type="button"
-                className="flex items-center relative font-medium p-2 w-full rounded-sm    hover:bg-blue-50 hover:text-blue-400 transition-colors duration-300"
+                className="menu-item"
                 onClick={handleRenameColumn}
               >
                 <Pencil className="w-6 h-6 mr-2" /> Rename list
@@ -55,7 +55,7 @@ export const DropDownColumn = ({
             {({ active }) => (
               <button
                 type="button"
-                className="flex items-center relative font-medium p-2 w-full rounded-sm hover:bg-blue-50 hover:text-blue-400 transition-colors duration-300"
+                className="menu-item"
                 onClick={() =>
                   moveColumn(data, setBoardData, columnID, "MOVE_RIGHT")
                 }
@@ -68,7 +68,7 @@ export const DropDownColumn = ({
             {({ active }) => (
               <button
                 type="button"
-                className="flex items-center relative font-medium p-2 w-full rounded-sm  hover:bg-blue-50 hover:text-blue-400 transition-colors duration-300"
+                className="menu-item"
                 onClick={() =>
                   moveColumn(data, setBoardData, columnID, "MOVE_LEFT")
                 }
@@ -81,7 +81,7 @@ export const DropDownColumn = ({
             {({ active }) => (
               <button
                 type="button"
-                className="flex items-center relative font-medium p-2 w-full rounded-sm text-red-500 hover:bg-red-50 hover:text-red-400 transition-colors duration-300"
+                className="menu-item-red"
                 onClick={() => removeColumn(data, setBoardData, columnID)}
               >
                 <Trash className="w-6 h-6 mr-2" /> Delete list
