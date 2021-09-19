@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { ReactSortable } from "react-sortablejs";
 import { useGlobal } from "../GlobalContext";
-import { IAllBoardData } from "../../Interface";
-import { addNewBoardDB, getAllBoardDB, updateAllBoardDB } from "../../lib";
+import {
+  addNewBoardDB,
+  deleteBoardDB,
+  getAllBoardDB,
+  updateAllBoardDB,
+} from "../../lib";
 import Plus from "../../public/Plus.svg";
 import Trash from "../../public/Trash.svg";
 
@@ -17,23 +21,25 @@ const AllBoard = () => {
     boardId: number | undefined
   ) => {
     console.log((e.target as HTMLElement).tagName);
-    if ((e.target as HTMLElement).tagName !== "DIV") {
-    } else {
+    if ((e.target as HTMLElement).tagName === "DIV") {
       setIsShowingBoard(true);
       setVisibleBoardId(boardId || 0);
     }
   };
 
-  const deleteItem = (index: number) => {
+  const deleteItem = (index: number, boardId: number) => {
     const newList = allBoard.filter((item, i) => index !== i);
+    deleteBoardDB(index, boardId);
     setAllBoard(newList);
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const newBoardID = await addNewBoardDB(newBoard);
-    await getAllBoardDB(setAllBoard);
-    setNewBoard("");
+    if (newBoard) {
+      const newBoardID = await addNewBoardDB(newBoard);
+      await getAllBoardDB(setAllBoard);
+      setNewBoard("");
+    }
   };
 
   const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
@@ -109,7 +115,7 @@ const AllBoard = () => {
                   <button
                     type="button"
                     className="delete-board w-8 h-8 mr-2 text-transparent border-solid border-2 border-transparent group-hover:text-gray-400 group-hover:hover:text-red-500 transition-colors duration-300"
-                    onClick={() => deleteItem(index)}
+                    onClick={() => deleteItem(index, item.id)}
                   >
                     <Trash className="delete-board" />
                   </button>

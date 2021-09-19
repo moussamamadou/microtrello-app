@@ -1,4 +1,5 @@
 import Board from "../components/Board";
+import Head from "next/head";
 import AllBoard from "../components/AllBoard";
 import { Transition } from "@headlessui/react";
 import { useGlobal } from "../components/GlobalContext";
@@ -36,6 +37,16 @@ export default function Home(): JSX.Element {
 
   return (
     <div className="">
+      <Head>
+        <title>µTrello</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta name="author" content="Moussa Mamadou" />
+        <meta name="copyright" content="Moussa Mamadou" />
+        <meta
+          name="description"
+          content="A very tiny browser task management app for your personnal and private usage."
+        />
+      </Head>
       <nav className="container flex justify-between gap-20 py-5 ">
         <h1 className="logo text-center cursor-default bg-indigo-700 py-2 px-3 rounded-lg">
           µTrello

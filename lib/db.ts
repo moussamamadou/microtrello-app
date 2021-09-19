@@ -8,10 +8,14 @@ export const addNewBoardDB = async (newBoard: string) => {
     .add({ name: newBoard, index: 0 })
     .then((id) => id);
 
+  const numberBoard = await board.count();
+
+  console.log(numberBoard);
+
   await board
     .where("id")
     .equals(newBoardId)
-    .modify({ index: newBoardId - 1 });
+    .modify({ index: numberBoard - 1 });
 
   const emptyData: IBoardData = {
     id: newBoardId,
@@ -39,6 +43,13 @@ export const updateAllBoardDB = async (allBoard: Array<IAllBoardData>) => {
       .equals(res.id || 0)
       .modify({ index: index });
   });
+};
+
+export const deleteBoardDB = async (index: number, boardId: number) => {
+  const board = await db.board;
+  board.where("index").equals(index).delete();
+  const boardData = await db.boardData;
+  await boardData.where("id").equals(boardId).delete();
 };
 
 export const getAllBoardDB = async (

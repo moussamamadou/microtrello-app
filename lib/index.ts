@@ -12,5 +12,6 @@ export {
   getBoardDataDB,
   updateBoardDataDB,
   updateBoardNameDB,
+  deleteBoardDB,
 } from "./db";
 export { initGlobalState, updateGlobalState } from "./common";
