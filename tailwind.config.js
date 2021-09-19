@@ -16,11 +16,15 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        primary: "#141625", //"#15202B",
+        secondary: "#252945", // "#22303C",
+        third: "#1e2139", // "#192734",
+        fourth: "#8899A6", //"#8899A6",
         light: "#F8FAFD",
       },
       fontFamily: {
-        body: ["Roboto"],
-        logo: ["Nunito"],
+        body: ["Epilogue"],
+        logo: ["JetBrains Mono"],
       },
       container: {
         center: true,
