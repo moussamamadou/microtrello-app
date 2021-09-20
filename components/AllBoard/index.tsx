@@ -21,7 +21,10 @@ const AllBoard = () => {
     boardId: number | undefined
   ) => {
     console.log((e.target as HTMLElement).tagName);
-    if ((e.target as HTMLElement).tagName === "DIV") {
+    if (
+      (e.target as HTMLElement).tagName === "DIV" ||
+      (e.target as HTMLElement).tagName === "H3"
+    ) {
       setIsShowingBoard(true);
       setVisibleBoardId(boardId || 0);
     }
