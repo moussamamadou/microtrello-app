@@ -1,37 +1,55 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
-
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-*:focus-visible {
-  outline: none;
-}
-*::-webkit-scrollbar {
-  @apply w-3 h-3 bg-secondary;
-}
+@layer base {
+  @font-face {
+    font-family: "Epilogue";
+    font-weight: 400;
+    src: url("../public/fonts/Epilogue/Epilogue-Regular.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "Epilogue";
+    font-weight: 500;
+    src: url("../public/fonts/Epilogue/Epilogue-Medium.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "Epilogue";
+    font-weight: 700;
+    src: url("../public/fonts/Epilogue/Epilogue-Bold.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: "JetBrains Mono";
+    font-weight: 700;
+    src: url("../public/fonts/JetBrainsMono/JetBrainsMono-Bold.ttf")
+      format("truetype");
+  }
+  *:focus-visible {
+    outline: none;
+  }
+  *::-webkit-scrollbar {
+    @apply w-3 h-3 bg-secondary;
+  }
 
-*::-webkit-scrollbar-thumb {
-  @apply bg-primary border-8;
-}
+  *::-webkit-scrollbar-thumb {
+    @apply bg-primary border-8;
+  }
 
-textarea::-webkit-scrollbar-thumb:hover {
-  @apply bg-transparent;
-}
+  textarea::-webkit-scrollbar-thumb:hover {
+    @apply bg-transparent;
+  }
 
-textarea::-webkit-scrollbar-thumb {
-  @apply bg-transparent;
-}
+  textarea::-webkit-scrollbar-thumb {
+    @apply bg-transparent;
+  }
 
-textarea::-webkit-scrollbar-thumb:hover {
-  @apply bg-gray-300;
-}
+  textarea::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-300;
+  }
 
-body {
-  @apply bg-primary font-body text-sm text-white font-normal leading-3;
+  body {
+    @apply bg-primary font-body text-sm text-white font-normal leading-3;
+  }
 }
 
 @layer components {

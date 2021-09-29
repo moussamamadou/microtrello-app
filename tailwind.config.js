@@ -23,8 +23,8 @@ module.exports = {
         light: "#F8FAFD",
       },
       fontFamily: {
-        body: ["Epilogue"],
-        logo: ["JetBrains Mono"],
+        body: ["Epilogue", "sans-serif"],
+        logo: ["JetBrains Mono", "monospaced"],
       },
       container: {
         center: true,
