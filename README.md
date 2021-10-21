@@ -22,6 +22,5 @@ Thank you for trying it. Don't forgert the 6 stars reviews.
 ## Author
 
 - Website - [Moussa Mamadou](http://www.moussamamadou.com)
-- Frontend Mentor - [@moussamamadou](https://www.frontendmentor.io/profile/moussamamadou)
 
 
